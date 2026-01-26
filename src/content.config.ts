@@ -23,9 +23,9 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 /**
- * Projects (Case Studies) Collection
+ * Projects Collection
  * 
- * Structured case studies following a narrative format: Overview → Problem → 
+ * Data analysis projects following a narrative format: Overview → Problem → 
  * Constraints → Approach → Key Decisions → Tech Stack → Impact → Learnings.
  * 
  * Features:

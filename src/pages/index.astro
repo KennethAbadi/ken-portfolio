@@ -2,20 +2,20 @@
 /**
  * Home Page
  * 
- * Case-study-first portfolio homepage that immediately showcases real impact and outcomes
+ * Project-first portfolio homepage that immediately showcases real impact and outcomes
  * rather than generic taglines. Features a hero section with featured project snapshots,
  * recent decisions, testimonials, and clear calls-to-action.
  * 
  * Design Philosophy:
- * - Lead with tangible results and case studies
+ * - Lead with tangible results and projects
  * - Document decision-making process transparently
  * - Demonstrate value through real project outcomes
  * - Provide multiple entry points (projects, decisions, journey)
  * 
  * Sections:
- * 1. Hero - Value statement with featured case study snapshots
+ * 1. Hero - Value statement with featured project snapshots
  * 2. Introduction - Brief personal introduction with journey link
- * 3. Recent Decisions - Latest architectural/technical decisions
+ * 3. Recent Decisions - Latest analytical/technical decisions
  * 4. Testimonials - Social proof from colleagues and clients
  * 5. Thinking - Problems and topics of interest
  * 6. CTA - Call-to-action for work opportunities
@@ -54,7 +54,7 @@ const featuredProjects = allProjects
   .slice(0, 2);
 
 /**
- * Case snapshots for hero display
+ * Project snapshots for hero display
  * 
  * Takes up to 3 featured projects to showcase in the hero section,
  * providing immediate evidence of impact and outcomes.
@@ -93,18 +93,18 @@ const recentDecisions = allDecisions
         <!-- Left: Value Statement -->
         <div class="hero-left">
           <h1 class="hero-title">
-            I don't just ship projects.<br/>
-            <span class="hero-title-emphasis">I document decisions, trade-offs, and outcomes.</span>
+            I turn data into insights.<br/>
+            <span class="hero-title-emphasis">I analyze, visualize, and tell stories with data.</span>
           </h1>
           <p class="hero-sub">
-            A portfolio built around case studies — not screenshots.
+            A portfolio built around real projects — not just charts and dashboards.
           </p>
           <p class="hero-meta">
             {siteConfig.author.name} · {siteConfig.author.title}
           </p>
           <div class="hero-cta">
-            <a href="/projects" class="btn-primary">Explore Case Studies</a>
-            <a href="/decisions" class="btn-secondary">How I Make Decisions</a>
+            <a href="/projects" class="btn-primary">Explore Projects</a>
+            <a href="/decisions" class="btn-secondary">My Approach</a>
           </div>
         </div>
 
@@ -113,7 +113,7 @@ const recentDecisions = allDecisions
           <div class="case-snapshots">
             {caseSnapshots.map((project) => (
               <a href={`/projects/${project.id}`} class="case-snapshot">
-                <span class="case-label">Case · {project.data.role}</span>
+                <span class="case-label">Project · {project.data.role}</span>
                 <span class="case-title">{project.data.title}</span>
                 <span class="case-outcome">{project.data.outcomeSummary}</span>
               </a>
@@ -126,10 +126,10 @@ const recentDecisions = allDecisions
     <!-- Introduction -->
     <section class="introduction">
       <p>
-        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} focused on building systems that move real business metrics.
+        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} passionate about transforming raw data into actionable insights that drive business decisions.
       </p>
       <p>
-        Every major decision is documented—because great engineers don't just build things, they explain why.
+        I believe great analysts don't just create visualizations—they tell compelling stories backed by data and explain the 'why' behind the numbers.
       </p>
       <ForwardLink href="/journey" text="Read my journey" variant="muted" />
     </section>
@@ -167,7 +167,7 @@ const recentDecisions = allDecisions
     <section class="thinking">
       <h2>Problems I Enjoy Solving</h2>
       <p class="thinking-list">
-        How to scale systems without scaling complexity · When to choose consistency over availability · Making legacy codebases maintainable · Designing APIs that last · Building teams that ship · Turning technical debt into technical investment · Documenting decisions so future-you understands past-you
+        Finding patterns in messy data · Choosing the right visualization for the story · Making complex data accessible to non-technical stakeholders · Balancing accuracy with interpretability · Designing dashboards that drive action · Turning exploratory analysis into repeatable processes · Validating assumptions with statistical rigor · Communicating insights clearly and concisely
       </p>
     </section>
 
@@ -175,7 +175,7 @@ const recentDecisions = allDecisions
     <section class="cta">
       <h2>Let's Work Together</h2>
       <p>
-        Looking for technical leadership, architectural guidance, or someone who documents their thinking? Let's talk.
+        Looking for someone who can turn your data into actionable insights and tell compelling stories? Let's connect.
       </p>
       <div class="cta-buttons">
         <a href="/projects" class="btn-primary">View My Work</a>

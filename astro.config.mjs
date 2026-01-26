@@ -71,8 +71,10 @@ export default defineConfig({
    * 
    * Set SITE_URL in your .env file (e.g., https://example.com)
    */
-  site: 'https://username.github.io',
-  base: '/repository-name',  // Remove if using custom domain
+  site: SITE_URL || 'https://kennethabadi.github.io',
+  
+  // Remove base if using a custom domain, or set to '/ken-portfolio' for project pages
+  // base: '/ken-portfolio',
   
   /**
    * Environment variables schema (Astro v5+)
