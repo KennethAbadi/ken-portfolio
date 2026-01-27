@@ -1,0 +1,61 @@
+---
+title: "Best City for Golf in the US, Data Analytics Project"
+role: "Data Analyst"
+year: 2025
+duration: "1 Week"
+teamSize: 1
+outcomeSummary: "Built an end-to-end data pipeline and ranking system to identify the best U.S. cities for golf, combining course data, climate indicators, and geographic analysis."
+
+overview: "This project analyzes and ranks U.S. cities based on golf accessibility, quality, and playability. Using Teeradar course data and state-level golfability metadata, I developed a data pipeline to collect, clean, aggregate, and visualize golf-related metrics. The analysis highlights top-performing golf cities and explores how climate and location influence rankings."
+
+problem: "Golf enthusiasts and industry stakeholders lack a standardized, data-driven way to compare cities based on golf quality, availability, and year-round playability. Existing rankings are often subjective, outdated, or limited in scope."
+
+constraints:
+  - "Reliance on third-party APIs and rate limits"
+  - "Incomplete availability of pricing and tee-time data"
+  - "Inconsistent city and course naming conventions"
+  - "Limited access to private course metadata"
+
+approach: "I designed an automated data pipeline to fetch raw course data from the Teeradar API, consolidate it into structured formats, and aggregate metrics at the city level. I normalized and weighted key indicators to produce composite scores, then explored trends and rankings using interactive visualizations in Jupyter notebooks."
+
+keyDecisions:
+  - decision: "Use Teeradar as the primary data source"
+    reasoning: "Teeradar provided comprehensive nationwide coverage with structured course metadata and ratings."
+  - decision: "Aggregate results at the city level"
+    reasoning: "City-level analysis balances geographic relevance with data availability and supports meaningful comparisons."
+  - decision: "Apply MinMax normalization for scoring"
+    reasoning: "Normalization allowed fair comparison across metrics with different scales."
+  - decision: "Include state-level golfability as an optional feature"
+    reasoning: "This enabled sensitivity analysis to evaluate how year-round playability impacts rankings."
+
+techStack:
+  - "Python"
+  - "Pandas"
+  - "NumPy"
+  - "Jupyter Notebook"
+  - "Matplotlib"
+  - "Seaborn"
+  - "SQLite"
+  - "Parquet"
+
+impact:
+  metrics:
+    - label: "Cities Analyzed"
+      value: "500+"
+    - label: "Golf Courses Processed"
+      value: "15,000+"
+    - label: "Data Formats Generated"
+      value: "3 (Parquet, NDJSON, SQLite)"
+    - label: "Top Rankings Evaluated"
+      value: "100+ cities"
+  qualitative: "The project identified Orlando, FL and Scottsdale, AZ as leading golf cities, validated expected regional trends, and revealed underrepresented areas. It demonstrates how structured data pipelines can support location-based lifestyle decisions."
+
+learnings:
+  - "Designing scalable data pipelines for API-driven datasets"
+  - "Handling geospatial and city-level aggregation challenges"
+  - "Building composite scoring systems and evaluating their sensitivity"
+  - "Communicating analytical findings through visual storytelling"
+
+featured: True
+order: 7
+---

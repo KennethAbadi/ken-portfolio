@@ -190,38 +190,6 @@ const journeyCollection = defineCollection({
   }),
 });
 
-/**
- * Writing (Blog) Collection
- * 
- * Blog posts and technical articles with MDX support.
- * 
- * Features:
- * - Draft mode for unpublished content
- * - Publish and update dates
- * - Optional tags for categorization
- */
-const writingCollection = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/writing' }),
-  schema: z.object({
-    /** Article title */
-    title: z.string(),
-    
-    /** Article description for SEO and previews */
-    description: z.string(),
-    
-    /** Original publication date */
-    publishDate: z.coerce.date(),
-    
-    /** Last updated date (optional) */
-    updatedDate: z.coerce.date().optional(),
-    
-    /** Tags for categorization */
-    tags: z.array(z.string()).optional(),
-    
-    /** Whether the article is a draft (hidden from production) */
-    draft: z.boolean().default(false),
-  }),
-});
 
 /**
  * Uses Collection
@@ -248,59 +216,6 @@ const usesCollection = defineCollection({
     
     /** Sort order within category */
     order: z.number(),
-  }),
-});
-
-/**
- * Speaking/Talks Collection
- * 
- * Conference talks, meetup presentations, podcast appearances, and workshops.
- * 
- * Features:
- * - Five talk types (conference, meetup, podcast, workshop, webinar)
- * - Links to slides and video recordings
- * - Event information and location
- * - Optional topics and duration
- * - Featured flag for highlighting
- */
-const speakingCollection = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/speaking' }),
-  schema: z.object({
-    /** Talk title */
-    title: z.string(),
-    
-    /** Talk description */
-    description: z.string(),
-    
-    /** Event name */
-    event: z.string(),
-    
-    /** Event website URL (optional) */
-    eventUrl: z.string().url().optional(),
-    
-    /** Date of the talk */
-    date: z.coerce.date(),
-    
-    /** Location (city, country, or "Online") */
-    location: z.string(),
-    
-    /** Type of speaking engagement */
-    type: z.enum(['conference', 'meetup', 'podcast', 'workshop', 'webinar']),
-    
-    /** Link to slides (optional) */
-    slides: z.string().url().optional(),
-    
-    /** Link to video recording (optional) */
-    video: z.string().url().optional(),
-    
-    /** Talk duration (e.g., "45 min", "1 hour") */
-    duration: z.string().optional(),
-    
-    /** Topics covered in the talk */
-    topics: z.array(z.string()).optional(),
-    
-    /** Whether to feature this talk */
-    featured: z.boolean().default(false),
   }),
 });
 
@@ -355,8 +270,6 @@ export const collections = {
   projects: projectsCollection,
   decisions: decisionsCollection,
   journey: journeyCollection,
-  writing: writingCollection,
   uses: usesCollection,
-  speaking: speakingCollection,
   testimonials: testimonialsCollection,
 };

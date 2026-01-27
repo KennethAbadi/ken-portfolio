@@ -67,16 +67,7 @@ export const pagesConfig = {
     heading: 'Projects',
     intro: 'Projects that demonstrate how I approach data problems, apply analytical methods, and deliver actionable insights. Each project tells the story of the challenge, the data, the analysis performed, and the outcomes achieved.',
   },
-  
-  /**
-   * Decisions listing page (/decisions)
-   */
-  decisions: {
-    title: 'Decisions - Architectural & Technical Choices',
-    description: 'A log of architectural and technical decisions, documenting the context, alternatives considered, and reasoning behind key engineering choices.',
-    heading: 'Decisions',
-    intro: 'A transparent log of architectural and technical decisions I\'ve made throughout my career. Each entry documents the context, alternatives considered, and the reasoning behind the choice.',
-  },
+
   
   /**
    * Journey timeline page (/journey)
@@ -86,26 +77,6 @@ export const pagesConfig = {
     description: 'A chronological timeline of my professional journey, highlighting key milestones, learning moments, and career transitions that shaped my growth as a Data Analyst.',
     heading: 'Journey',
     intro: 'A timeline of my professional growth and learning progression. This isn\'t a resume—it\'s a story of how I\'ve evolved as a Data Analyst, the pivotal moments that shaped my thinking, and the skills I\'ve developed along the way.',
-  },
-  
-  /**
-   * Writing/blog listing page (/writing)
-   */
-  writing: {
-    title: 'Writing - Technical Articles & Insights',
-    description: 'Technical articles, insights, and lessons learned from building software systems and solving engineering challenges.',
-    heading: 'Writing',
-    intro: 'Technical articles, insights, and lessons learned from building software systems. I write about architecture decisions, engineering practices, and the challenges of delivering reliable software at scale.',
-  },
-
-  /**
-   * Speaking engagements page (/speaking)
-   */
-  speaking: {
-    title: 'Speaking - Talks & Presentations',
-    description: 'Conference talks, meetup presentations, podcast appearances, and workshops on software engineering, architecture, and technical leadership.',
-    heading: 'Speaking',
-    intro: 'I regularly speak at conferences, meetups, and on podcasts about software architecture, engineering practices, and technical leadership. Here\'s a collection of my talks and presentations.',
   },
   
   /**
