@@ -70,9 +70,6 @@ export default defineConfig({
    * - RSS feeds
    * 
    * Set SITE_URL in your .env file (e.g., https://yourdomain.com)
-   * 
-   * For custom domain: Set to your domain (e.g., 'https://kenneth.dev')
-   * For GitHub Pages without custom domain: Set to 'https://kennethabadi.github.io'
    */
   site: SITE_URL || 'https://kennethabadi.dev',
   
