@@ -73,8 +73,13 @@ export default defineConfig({
    */
   site: SITE_URL || 'https://kennethabadi.github.io',
   
-  // Remove base if using a custom domain, or set to '/ken-portfolio' for project pages
-  // base: '/ken-portfolio',
+  /**
+   * Base path for GitHub Pages project deployment
+   * 
+   * Required when deploying to https://username.github.io/repository-name/
+   * Remove or set to '/' if using a custom domain or user/org pages (https://username.github.io)
+   */
+  base: '/ken-portfolio',
   
   /**
    * Environment variables schema (Astro v5+)
