@@ -69,17 +69,21 @@ export default defineConfig({
    * - Open Graph tags
    * - RSS feeds
    * 
-   * Set SITE_URL in your .env file (e.g., https://example.com)
+   * Set SITE_URL in your .env file (e.g., https://yourdomain.com)
+   * 
+   * For custom domain: Set to your domain (e.g., 'https://kenneth.dev')
+   * For GitHub Pages without custom domain: Set to 'https://kennethabadi.github.io'
    */
-  site: SITE_URL || 'https://kennethabadi.github.io',
+  site: SITE_URL || 'https://kennethabadi.dev',
   
   /**
-   * Base path for GitHub Pages project deployment
+   * Base path configuration
    * 
-   * Required when deploying to https://username.github.io/repository-name/
-   * Remove or set to '/' if using a custom domain or user/org pages (https://username.github.io)
+   * Options:
+   * - Custom domain: Remove base or set to '/'
+   * - GitHub Pages project (username.github.io/repo-name): Set to '/repo-name'
    */
-  base: '/ken-portfolio',
+  // base: '/ken-portfolio',  // Uncomment if deploying to GitHub Pages without custom domain
   
   /**
    * Environment variables schema (Astro v5+)
