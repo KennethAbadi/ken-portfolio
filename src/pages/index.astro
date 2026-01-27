@@ -67,10 +67,6 @@ const caseSnapshots = featuredProjects.slice(0, 3);
  * Retrieves all decisions, sorts by date (newest first), and limits to
  * top 2 for the homepage preview.
  */
-const allDecisions = await getCollection('decisions');
-const recentDecisions = allDecisions
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 2);
 ---
 
 <BaseLayout>
@@ -132,32 +128,6 @@ const recentDecisions = allDecisions
         I believe great analysts don't just create visualizations—they tell compelling stories backed by data and explain the 'why' behind the numbers.
       </p>
       <ForwardLink href="/journey" text="Read my journey" variant="muted" />
-    </section>
-
-    <!-- Recent Decisions -->
-    <section class="recent-decisions">
-      <div class="section-header">
-        <h2>Recent Decisions</h2>
-        <ForwardLink href="/decisions" text="View all" variant="muted" />
-      </div>
-      
-      {recentDecisions.length > 0 ? (
-        <div class="decisions-list">
-          {recentDecisions.map((decision) => {
-            const date = new Date(decision.data.date);
-            const formattedDate = date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-            return (
-              <article class="decision-item">
-                <span class="decision-date">{formattedDate}</span>
-                <h3 class="decision-title">{decision.data.title}</h3>
-                <p class="decision-context">{decision.data.context}</p>
-              </article>
-            );
-          })}
-        </div>
-      ) : (
-        <p class="no-decisions">No decisions documented yet.</p>
-      )}
     </section>
 
     <!-- Testimonials -->
