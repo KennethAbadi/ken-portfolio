@@ -194,10 +194,10 @@ const journeyCollection = defineCollection({
 /**
  * Uses Collection
  * 
- * Documentation of tools, technologies, and environment used in development workflow.
+ * Documentation of tools and technologies used in development workflow.
  * 
  * Features:
- * - Three categories (tools, stack, environment)
+ * - Two categories (tools, stack)
  * - Items with name, description, and optional URL
  * - Custom order for intentional presentation
  */
@@ -205,7 +205,7 @@ const usesCollection = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/uses' }),
   schema: z.object({
     /** Category for grouping */
-    category: z.enum(['tools', 'stack', 'environment']),
+    category: z.enum(['tools', 'stack']),
     
     /** List of items in this category */
     items: z.array(z.object({

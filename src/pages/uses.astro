@@ -2,14 +2,14 @@
 /**
  * Uses Page
  * 
- * Documents the tools, technologies, and environment used in the development workflow.
+ * Documents the tools and technologies used in the development workflow.
  * Provides transparency about the technical stack and helps other engineers discover
  * useful tools while understanding the technical context.
  * 
  * Features:
  * - Queries all uses entries from content collection
  * - Sorts by custom order field for intentional presentation
- * - Groups items by category (tools, stack, environment)
+ * - Groups items by category (tools, stack)
  * - Displays category headers with descriptions
  * - Shows items with name, description, and optional external links
  * - External link indicators for referenced tools
@@ -18,7 +18,6 @@
  * Categories:
  * - tools: Software and applications used daily
  * - stack: Technologies and frameworks worked with
- * - environment: Hardware and workspace setup
  * 
  * Route: /uses
  * 
@@ -70,15 +69,14 @@ const groupedByCategory = sortedUses.reduce((acc, entry) => {
 const categoryInfo = {
   tools: { title: 'Tools', description: 'Software and applications I use daily' },
   stack: { title: 'Tech Stack', description: 'Technologies and frameworks I work with' },
-  environment: { title: 'Environment', description: 'Hardware and workspace setup' },
 };
 
 /**
  * Defines the display order for categories
  * 
- * Ensures categories appear in a logical progression: tools → stack → environment
+ * Ensures categories appear in a logical progression: tools → stack
  */
-const categoryOrder: Array<'tools' | 'stack' | 'environment'> = ['tools', 'stack', 'environment'];
+const categoryOrder: Array<'tools' | 'stack'> = ['tools', 'stack'];
 ---
 
 <BaseLayout>
