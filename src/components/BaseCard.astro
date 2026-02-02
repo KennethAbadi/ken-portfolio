@@ -19,6 +19,7 @@
  * @slot title - Card heading/title
  * @slot description - Card description or summary text
  * @slot tags - Container for tag list
+ * @slot footer - Additional content before CTA (e.g., external links)
  * @slot default - CTA links or additional content at bottom
  * 
  * @example
@@ -49,6 +50,7 @@ const { href, class: className } = Astro.props;
   <span class="card-title"><slot name="title" /></span>
   <span class="card-description"><slot name="description" /></span>
   <slot name="tags" />
+  <slot name="footer" />
   <slot />
 </a>
 

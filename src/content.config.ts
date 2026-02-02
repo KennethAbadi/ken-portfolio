@@ -107,6 +107,9 @@ const projectsCollection = defineCollection({
     
     /** Related decision slugs for cross-referencing */
     relatedDecisions: z.array(z.string()).optional(),
+    
+    /** GitHub repository URL */
+    githubUrl: z.string().url().optional(),
   }),
 });
 
