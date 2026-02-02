@@ -2,6 +2,8 @@
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
+kennethabadi.dev
+
 Personal portfolio website for Kenneth Abadi, an aspiring Data Analyst specializing in data analysis, visualization, and deriving actionable insights from complex datasets.
 
 ## About
