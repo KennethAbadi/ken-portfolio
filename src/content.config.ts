@@ -6,11 +6,8 @@
  * 
  * Collections:
  * - projects: Case studies with structured narrative format
- * - decisions: Architectural and technical decision records
  * - journey: Career timeline entries
- * - writing: Blog posts and articles
  * - uses: Tools, stack, and environment documentation
- * - speaking: Conference talks and presentations
  * - testimonials: Endorsements and recommendations
  * 
  * All collections use the glob loader to read MDX files from their respective directories.
@@ -26,15 +23,14 @@ import { glob } from 'astro/loaders';
  * Projects Collection
  * 
  * Data analysis projects following a narrative format: Overview → Problem → 
- * Constraints → Approach → Key Decisions → Tech Stack → Impact → Learnings.
+ * Constraints → Approach → Tech Stack → Impact → Learnings.
  * 
  * Features:
  * - Required narrative sections for consistent storytelling
- * - Key decisions with reasoning and alternatives
  * - Impact metrics (quantitative and qualitative)
  * - Featured flag for homepage showcase
  * - Optional custom order for manual curation
- * - Related project and decision slugs for cross-referencing
+ * - Related project slugs for cross-referencing
  */
 const projectsCollection = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/projects' }),
@@ -69,13 +65,6 @@ const projectsCollection = defineCollection({
     /** Solution approach and strategy */
     approach: z.string(),
     
-    /** Key technical decisions with reasoning */
-    keyDecisions: z.array(z.object({
-      decision: z.string(),
-      reasoning: z.string(),
-      alternatives: z.array(z.string()).optional(),
-    })),
-    
     /** Technologies and frameworks used */
     techStack: z.array(z.string()),
     
@@ -105,60 +94,8 @@ const projectsCollection = defineCollection({
     /** Related project slugs for cross-referencing */
     relatedProjects: z.array(z.string()).optional(),
     
-    /** Related decision slugs for cross-referencing */
-    relatedDecisions: z.array(z.string()).optional(),
-    
     /** GitHub repository URL */
     githubUrl: z.string().url().optional(),
-  }),
-});
-
-/**
- * Decisions Collection
- * 
- * Architectural and technical decision records documenting the context,
- * decision made, alternatives considered, and reasoning.
- * 
- * Features:
- * - Context and decision documentation
- * - Alternatives with pros/cons analysis
- * - Reasoning explanation
- * - Optional tags for categorization
- * - Related project and decision slugs for cross-referencing
- */
-const decisionsCollection = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/decisions' }),
-  schema: z.object({
-    /** Decision title */
-    title: z.string(),
-    
-    /** Date the decision was made */
-    date: z.coerce.date(),
-    
-    /** Context and background for the decision */
-    context: z.string(),
-    
-    /** The decision that was made */
-    decision: z.string(),
-    
-    /** Alternative options considered */
-    alternatives: z.array(z.object({
-      option: z.string(),
-      pros: z.array(z.string()).optional(),
-      cons: z.array(z.string()).optional(),
-    })),
-    
-    /** Reasoning behind the decision */
-    reasoning: z.string(),
-    
-    /** Optional tags for categorization */
-    tags: z.array(z.string()).optional(),
-    
-    /** Related project slugs for cross-referencing */
-    relatedProjects: z.array(z.string()).optional(),
-    
-    /** Related decision slugs for cross-referencing */
-    relatedDecisions: z.array(z.string()).optional(),
   }),
 });
 
@@ -271,7 +208,6 @@ const testimonialsCollection = defineCollection({
  */
 export const collections = {
   projects: projectsCollection,
-  decisions: decisionsCollection,
   journey: journeyCollection,
   uses: usesCollection,
   testimonials: testimonialsCollection,

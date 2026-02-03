@@ -4,25 +4,22 @@
  * 
  * Project-first portfolio homepage that immediately showcases real impact and outcomes
  * rather than generic taglines. Features a hero section with featured project snapshots,
- * recent decisions, testimonials, and clear calls-to-action.
+ * testimonials, and clear calls-to-action.
  * 
  * Design Philosophy:
  * - Lead with tangible results and projects
- * - Document decision-making process transparently
  * - Demonstrate value through real project outcomes
- * - Provide multiple entry points (projects, decisions, journey)
+ * - Provide multiple entry points (projects, journey)
  * 
  * Sections:
  * 1. Hero - Value statement with featured project snapshots
  * 2. Introduction - Brief personal introduction with journey link
- * 3. Recent Decisions - Latest analytical/technical decisions
- * 4. Testimonials - Social proof from colleagues and clients
- * 5. Thinking - Problems and topics of interest
- * 6. CTA - Call-to-action for work opportunities
+ * 3. Testimonials - Social proof from colleagues and clients
+ * 4. Thinking - Problems and topics of interest
+ * 5. CTA - Call-to-action for work opportunities
  * 
  * Features:
  * - Featured projects showcase (top 2-3)
- * - Recent decisions preview (top 2)
  * - Testimonials integration
  * - Structured data for SEO (WebSite and Person)
  * - Responsive grid layout
@@ -60,13 +57,6 @@ const featuredProjects = allProjects
  * providing immediate evidence of impact and outcomes.
  */
 const caseSnapshots = featuredProjects.slice(0, 3);
-
-/**
- * Queries recent decisions for preview section
- * 
- * Retrieves all decisions, sorts by date (newest first), and limits to
- * top 2 for the homepage preview.
- */
 ---
 
 <BaseLayout>
@@ -121,7 +111,7 @@ const caseSnapshots = featuredProjects.slice(0, 3);
     <!-- Introduction -->
     <section class="introduction">
       <p>
-        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} passionate about transforming raw data into actionable insights that drive business decisions.
+        I'm {siteConfig.author.name}, {siteConfig.author.title.toLowerCase()} passionate about transforming raw data into actionable insights that drive business growth.
       </p>
       <p>
         I believe great analysts don't just create visualizations—they tell compelling stories backed by data and explain the 'why' behind the numbers.
@@ -309,10 +299,6 @@ const caseSnapshots = featuredProjects.slice(0, 3);
       color: var(--color-text);
     }
 
-    .recent-decisions {
-      margin-bottom: 5rem;
-    }
-
     .section-header {
       display: flex;
       align-items: baseline;
@@ -324,52 +310,6 @@ const caseSnapshots = featuredProjects.slice(0, 3);
       font-size: 1.25rem;
       font-weight: 600;
       letter-spacing: -0.01em;
-    }
-
-    .decisions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .decision-item {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .decision-item:last-child {
-      border-bottom: none;
-    }
-
-    .decision-date {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .decision-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      line-height: 1.3;
-      color: var(--color-text);
-      margin-bottom: 0.5rem;
-    }
-
-    .decision-context {
-      font-size: 0.9375rem;
-      line-height: 1.6;
-      color: var(--color-text-secondary);
-    }
-
-    .no-decisions {
-      color: var(--color-text-muted);
-      font-style: italic;
-      padding: 1.5rem 0;
     }
 
     .thinking {

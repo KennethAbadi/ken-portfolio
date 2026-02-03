@@ -11,10 +11,9 @@
  * 2. Problem - Challenge being addressed
  * 3. Constraints - Limitations and boundaries
  * 4. Approach - Solution strategy
- * 5. Key Decisions - Technical choices with reasoning and alternatives
- * 6. Tech Stack - Technologies used
- * 7. Result & Impact - Quantitative metrics and qualitative outcomes
- * 8. Learnings - Insights and takeaways
+ * 5. Tech Stack - Technologies used
+ * 6. Result & Impact - Quantitative metrics and qualitative outcomes
+ * 7. Learnings - Insights and takeaways
  * 
  * Features:
  * - Static path generation for all project entries
@@ -84,12 +83,10 @@ const {
   problem,
   constraints,
   approach,
-  keyDecisions,
   techStack,
   impact,
   learnings,
   relatedProjects,
-  relatedDecisions,
   status,
   githubUrl,
 } = project.data;
@@ -105,7 +102,7 @@ const statusInfo = statusConfig[status || 'completed'];
 /**
  * Calculates reading time from all case study content
  * 
- * Combines all text sections including overview, problem, approach, decisions,
+ * Combines all text sections including overview, problem, approach,
  * impact, learnings, and optional markdown body to estimate total reading time.
  */
 const allText = [
@@ -113,7 +110,6 @@ const allText = [
   problem,
   approach,
   ...constraints,
-  ...keyDecisions.map(d => `${d.decision} ${d.reasoning} ${d.alternatives?.join(' ') || ''}`),
   impact.qualitative,
   ...learnings,
   project.body || '',
@@ -210,32 +206,6 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
       <p>{approach}</p>
     </section>
 
-    <!-- Key Decisions Section -->
-    <section class="case-study-section">
-      <h2>Key Decisions</h2>
-      <div class="decisions-list">
-        {keyDecisions.map((decision) => (
-          <div class="decision-item">
-            <h3 class="decision-title">{decision.decision}</h3>
-            <div class="decision-reasoning">
-              <strong>Reasoning:</strong>
-              <p>{decision.reasoning}</p>
-            </div>
-            {decision.alternatives && decision.alternatives.length > 0 && (
-              <div class="decision-alternatives">
-                <strong>Alternatives considered:</strong>
-                <ul>
-                  {decision.alternatives.map((alt) => (
-                    <li>{alt}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-
     <!-- Tech Stack Section -->
     <section class="case-study-section">
       <h2>Tech Stack</h2>
@@ -278,7 +248,6 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
     <!-- Related Content -->
     <RelatedContent 
       relatedProjects={relatedProjects} 
-      relatedDecisions={relatedDecisions} 
     />
 
     <BackLink href="/projects" text="All projects" />
@@ -425,69 +394,6 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
       color: var(--color-accent);
     }
 
-    .decisions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .decision-item {
-      padding: 1.5rem;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      background: var(--color-bg-secondary);
-    }
-
-    .decision-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-    }
-
-    .decision-reasoning,
-    .decision-alternatives {
-      margin-top: 1rem;
-    }
-
-    .decision-reasoning strong,
-    .decision-alternatives strong {
-      display: block;
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .decision-reasoning p {
-      font-size: 1.0625rem;
-      margin-top: 0.5rem;
-      color: var(--color-text-secondary);
-    }
-
-    .decision-alternatives ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 0.5rem;
-    }
-
-    .decision-alternatives li {
-      font-size: 1.0625rem;
-      line-height: 1.6;
-      padding: 0.25rem 0;
-      padding-left: 1.25rem;
-      position: relative;
-      color: var(--color-text-secondary);
-    }
-
-    .decision-alternatives li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--color-accent);
-    }
-
     .impact-qualitative {
       font-size: 1.125rem;
       line-height: 1.7;
@@ -520,10 +426,6 @@ const readingTime = formatReadingTime(calculateReadingTime(allText));
 
       .case-study-section p {
         font-size: 1rem;
-      }
-
-      .decision-item {
-        padding: 1.25rem;
       }
     }
   </style>

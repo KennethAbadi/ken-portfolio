@@ -55,7 +55,7 @@ export const pagesConfig = {
    */
   home: {
     title: 'Home',
-    description: 'Engineering leader specializing in system architecture, technical decision-making, and delivering measurable business impact.',
+    description: 'Engineering leader specializing in system architecture, technical excellence, and delivering measurable business impact.',
   },
   
   /**

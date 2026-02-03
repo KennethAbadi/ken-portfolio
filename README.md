@@ -13,7 +13,6 @@ This portfolio showcases my journey in data analytics, featuring:
 - **Projects** — In-depth projects showcasing data analysis work with problem statements, methodologies, and measurable outcomes
 - **Journey** — Key milestones and learnings throughout my career in data analytics
 - **Writing** — Technical articles and insights about data analysis, visualization, and best practices
-- **Decisions** — Documentation of technical decisions and analytical approaches
 - **Tools** — My tech stack and development environment
 
 ## Tech Stack

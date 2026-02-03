@@ -99,7 +99,7 @@ export default defineConfig({
       SITE_URL: envField.string({ context: 'client', access: 'public', default: 'https://example.com' }),
       SITE_LANGUAGE: envField.string({ context: 'client', access: 'public', default: 'en' }),
       SITE_TITLE: envField.string({ context: 'client', access: 'public', default: 'Professional Portfolio' }),
-      SITE_DESCRIPTION: envField.string({ context: 'client', access: 'public', default: 'Engineering leader specializing in system architecture, technical decision-making, and delivering measurable business impact.' }),
+      SITE_DESCRIPTION: envField.string({ context: 'client', access: 'public', default: 'Engineering leader specializing in system architecture, technical excellence, and delivering measurable business impact.' }),
       
       // Author information
       SITE_AUTHOR_NAME: envField.string({ context: 'client', access: 'public', default: 'Your Name' }),

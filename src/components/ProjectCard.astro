@@ -24,7 +24,6 @@
  */
 
 import BaseCard from './BaseCard.astro';
-import ForwardLink from './ForwardLink.astro';
 
 interface Props {
   /** Project title (displayed as card heading) */
@@ -50,12 +49,9 @@ interface Props {
   
   /** Project status (default: 'completed') */
   status?: 'completed' | 'ongoing' | 'archived';
-  
-  /** GitHub repository URL */
-  githubUrl?: string;
 }
 
-const { title, slug, outcomeSummary, role, year, techStack = [], featured = false, status = 'completed', githubUrl } = Astro.props;
+const { title, slug, outcomeSummary, role, year, techStack = [], featured = false, status = 'completed' } = Astro.props;
 
 // Show max 4 tech tags to keep card clean and consistent
 const displayTech = techStack.slice(0, 4);
