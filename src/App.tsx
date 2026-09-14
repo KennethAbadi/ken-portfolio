@@ -92,7 +92,7 @@ function App() {
           ))}
         </nav>
         <a className="header-note" {...linkProps('#contact')}>
-          Open to analyst/developer roles <span>↗</span>
+          Open to developer roles <span>↗</span>
         </a>
       </header>
       {page}
@@ -105,35 +105,32 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
   return (
     <main>
       <section className="hero wrap">
-        <p className="eyebrow">Developer + analyst · Vancouver, BC</p>
+        <p className="eyebrow">Vancouver, BC</p>
         <h1>
-          I turn messy data into
+          Hi!
           <br />
-          clear decisions and useful tools.
+          I'm Kenneth, I try to make cool things and analyze data.
         </h1>
         <div className="hero-lower">
           <p className="hero-copy">
-            I build with data, learn fast, and enjoy making complex problems easier to understand.
+            
           </p>
         </div>
       </section>
       <section className="statement wrap">
         <p className="eyebrow">A little more context</p>
         <div className="statement-grid">
-          <h2>I like solving real problems with data.</h2>
+          <h2>I like bringing insight to problems and building interesting things.</h2>
           <div>
             <p>
-              I work at the intersection of analysis and building. I enjoy digging into the question,
-              cleaning up the signal, and turning the result into something practical and clear.
+              Id like to think that i'm a full stack developer and a data enthusiast. I enjoy building applications on things im passionate about as well as analyzing data to uncover meaningful insights.
+              I care about thoughtful insights and clean design and architecture. 
             </p>
-            <a className="text-link" {...linkProps('#experience')}>
-              More about my experience <span>↗</span>
-            </a>
           </div>
         </div>
       </section>
       <section id="projects" className="work-section wrap">
-        <SectionLabel text="Selected work" />
+        <SectionLabel text="Projects" />
         <div className="project-grid">
           {projects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} linkProps={linkProps} />
@@ -151,7 +148,7 @@ function Projects({ linkProps }: { linkProps: LinkProps }) {
   return (
     <main className="subpage wrap">
       <PageIntro
-        eyebrow="Selected work"
+        eyebrow="Projects"
         title="Projects I’m building from."
         copy="A few examples of work where I used data to ask better questions, test ideas, and turn complexity into something usable."
       />
@@ -388,7 +385,6 @@ function Footer({ linkProps }: { linkProps: LinkProps }) {
         <p>Analyst and developer building useful things from data.</p>
       </div>
       <div className="footer-links">
-        <a {...linkProps('#experience')}>About</a>
         <a href="https://github.com/KennethAbadi">GitHub ↗</a>
         <a href="https://www.linkedin.com/in/kennethputra">LinkedIn ↗</a>
       </div>

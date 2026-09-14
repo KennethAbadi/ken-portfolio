@@ -8,7 +8,6 @@
   margin: 0;
   padding: 18px max(28px, calc((100vw - 1040px) / 2 + 28px));
   background: rgba(248, 247, 243, 0.94);
-  border-bottom: 1px solid #dcdad4;
   backdrop-filter: blur(12px);
 }
 
