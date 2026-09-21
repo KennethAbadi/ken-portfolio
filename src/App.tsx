@@ -1,5 +1,6 @@
 import { useEffect, useState, type MouseEvent } from 'react';
 import { projects, type Project } from './data/projects';
+import { experiences, type Experience } from './data/experiences';
 
 const navItems = [
   { label: 'Projects', path: '#projects' },
@@ -71,6 +72,10 @@ function App() {
       <Projects linkProps={linkProps} />
     ) : path.startsWith('/projects/') ? (
       <ProjectPage slug={path.split('/').pop() ?? ''} linkProps={linkProps} />
+    ) : path === '/experience' ? (
+      <ExperienceIndex linkProps={linkProps} />
+    ) : path.startsWith('/experience/') ? (
+      <ExperiencePage slug={path.split('/').pop() ?? ''} linkProps={linkProps} />
     ) : (
       <NotFound linkProps={linkProps} />
     );
@@ -137,7 +142,7 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
           ))}
         </div>
       </section>
-      <ExperienceSection />
+      <ExperienceSection linkProps={linkProps} />
       <QuestionsSection />
       <ContactSection />
     </main>
@@ -242,7 +247,162 @@ function ProjectPage({ slug, linkProps }: { slug: string; linkProps: LinkProps }
   );
 }
 
-function ExperienceSection() {
+function ExperienceIndex({ linkProps }: { linkProps: LinkProps }) {
+  return (
+    <main className="subpage wrap">
+      <PageIntro
+        eyebrow="Experience"
+        title="A practical path through analytical work."
+        copy="Research, problem-solving, and data work across wildfire analysis, dashboarding, and technical interpretation."
+      />
+      <div className="project-list">
+        {experiences.map((experience, index) => (
+          <ExperienceCard
+            key={experience.slug}
+            experience={experience}
+            index={index}
+            linkProps={linkProps}
+          />
+        ))}
+      </div>
+    </main>
+  );
+}
+
+function ExperienceCard({
+  experience,
+  index,
+  linkProps,
+}: {
+  experience: Experience;
+  index: number;
+  linkProps: LinkProps;
+}) {
+  return (
+    <a
+      className={`project-card ${experience.accent}`}
+      {...linkProps(`/experience/${experience.slug}`)}
+    >
+      <div className="project-art">
+        <span className="art-index">0{index + 1}</span>
+        <span className="art-label">{experience.organization}</span>
+        <div className="art-shape" />
+      </div>
+      <div className="project-meta">
+        <div>
+          <h3>{experience.title}</h3>
+          <p>
+            {experience.role} · {experience.timeline}
+          </p>
+        </div>
+        <span className="arrow">↗</span>
+      </div>
+      <p className="project-summary">{experience.summary}</p>
+    </a>
+  );
+}
+
+function ExperiencePage({ slug, linkProps }: { slug: string; linkProps: LinkProps }) {
+  const experience = experiences.find((item) => item.slug === slug);
+  if (!experience) return <NotFound linkProps={linkProps} />;
+  return (
+    <main className="project-page wrap">
+      <a
+        className="back-link"
+        href="/experience"
+        onClick={(event) => {
+          event.preventDefault();
+          goBack('/experience');
+        }}
+      >
+        ← All experience
+      </a>
+      <div className={`case-hero ${experience.accent}`}>
+        <p className="eyebrow">{experience.organization} · {experience.timeline}</p>
+        <h1>{experience.title}</h1>
+        <p>{experience.summary}</p>
+      </div>
+
+      <section className="case-content">
+        <div className="metrics">
+          {experience.metrics.map((metric) => (
+            <div key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
+          ))}
+        </div>
+        <div>
+          <p className="eyebrow">Overview</p>
+          <h2 className="experience-overview">{experience.overview}</h2>
+        </div>
+        
+      </section>
+
+      <section className="case-details">
+        <div>
+          <p className="eyebrow">Organization</p>
+          <p>{experience.organization}</p>
+        </div>
+        <div>
+          <p className="eyebrow">Role</p>
+          <p>{experience.role}</p>
+        </div>
+        <div>
+          <p className="eyebrow">Timeline</p>
+          <p>{experience.timeline}</p>
+        </div>
+      </section>
+
+      <section className="case-details">
+        <div>
+          <p className="eyebrow">Key responsibilities</p>
+          <ul>
+            {experience.responsibilities.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="eyebrow">Technical contributions</p>
+          <ul>
+            {experience.technicalContributions.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="case-details">
+        <div>
+          <p className="eyebrow">Tech stack</p>
+          <p>{experience.techStack.join(' · ')}</p>
+        </div>
+        <div>
+          <p className="eyebrow">Data / domain</p>
+          <p>{experience.dataDomain.join(' · ')}</p>
+        </div>
+      </section>
+
+      <section className="case-details">
+        <div>
+          <p className="eyebrow">Results</p>
+          <ul>
+            {experience.results.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="eyebrow">Stakeholders</p>
+          <p>{experience.stakeholders.join(' · ')}</p>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function ExperienceSection({ linkProps }: { linkProps: LinkProps }) {
   return (
     <section id="experience" className="scroll-section wrap">
       <PageIntro
@@ -252,23 +412,20 @@ function ExperienceSection() {
       />
       <div className="timeline">
         <div className="timeline-item">
-          <span>2025</span>
+          <span>May 2024 – Aug 2024</span>
           <div>
-            <h2>Building an analytical practice</h2>
+            <h2>Undergraduate Research Assistant · UBC Okanagan</h2>
             <p>
-              Exploring forecasting, data pipelines, and visual explanations through independent
-              projects.
+              Worked on wildfire research and sensor-analysis projects using environmental and IoT
+              data to improve wildfire forecasting and communication with response teams.
             </p>
-            <small>Python · pandas · machine learning · visualization</small>
-          </div>
-        </div>
-        <div className="timeline-item">
-          <span>Now</span>
-          <div>
-            <h2>Looking for the next useful problem</h2>
+            <small>
+              Python · pandas · NumPy · SQL · Power BI · Azure DevOps · Git
+            </small>
             <p>
-              Open to opportunities where careful analysis can make a real difference for a team or
-              customer.
+              <a className="text-link" {...linkProps('/experience/wildfire-risk-sensor-analysis')}>
+                Read the full role <span>↗</span>
+              </a>
             </p>
           </div>
         </div>

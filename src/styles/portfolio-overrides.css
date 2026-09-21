@@ -19,6 +19,12 @@
 .question-item > span { color: #88848b; font: 12px 'DM Mono', monospace; }
 .question-item h2 { font: 500 27px 'Space Grotesk'; margin: 0 0 10px; }
 .question-item p { font-size: 17px; line-height: 1.45; max-width: 570px; margin: 0; }
+.case-content { grid-template-columns: 1fr; gap: 40px; }
+.case-content h2 { max-width: none; }
+.experience-overview { font-size: 28px !important; text-align: left; }
+.metrics { grid-template-columns: repeat(3, 1fr); }
+.case-details li { line-height: 1.45; margin-bottom: 8px; }
+.case-details li:last-child { margin-bottom: 0; }
 
 @media (max-width: 700px) {
   .site-header { padding: 16px 20px; }
@@ -26,4 +32,5 @@
   .project-art { height: 220px; }
   .question-item { grid-template-columns: 42px 1fr; gap: 14px; }
   .question-item h2 { font-size: 22px; }
+  .metrics { grid-template-columns: 1fr 1fr; }
 }
