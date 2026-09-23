@@ -9,7 +9,13 @@ export type Project = {
   accent: string;
   metrics: { value: string; label: string }[];
   stack: string[];
+  /** Optional project photo. Import a PNG from src/assets/projects and assign it here. */
+  image?: string;
 };
+
+// To add a photo for a project: drop the PNG in src/assets/projects, then
+// `import charityhubPhoto from '../assets/projects/charityhub.png';`
+// and set `image: charityhubPhoto` on that project's entry below.
 
 export const projects: Project[] = [
   {

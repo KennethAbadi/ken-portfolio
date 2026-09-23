@@ -13,6 +13,7 @@
 
 .hero { padding-top: 190px; }
 .project-art { height: 245px; }
+.art-photo { width: calc(100% + 36px); height: calc(100% + 36px); margin: -18px; object-fit: cover; display: block; }
 .scroll-section { scroll-margin-top: 90px; }
 .questions-list { border-top: 1px solid #dcdad4; }
 .question-item { display: grid; grid-template-columns: 150px 1fr; gap: 40px; border-bottom: 1px solid #dcdad4; padding: 28px 0; }

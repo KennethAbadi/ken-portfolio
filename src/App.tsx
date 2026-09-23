@@ -178,9 +178,15 @@ function ProjectCard({
   return (
     <a className={`project-card ${project.accent}`} {...linkProps(`/projects/${project.slug}`)}>
       <div className="project-art">
-        <span className="art-index">0{index + 1}</span>
-        <span className="art-label">{project.shortTitle}</span>
-        <div className="art-shape" />
+        {project.image ? (
+          <img className="art-photo" src={project.image} alt={project.title} />
+        ) : (
+          <>
+            <span className="art-index">0{index + 1}</span>
+            <span className="art-label">{project.shortTitle}</span>
+            <div className="art-shape" />
+          </>
+        )}
       </div>
       <div className="project-meta">
         <div>
