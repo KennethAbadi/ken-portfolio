@@ -150,6 +150,7 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
 }
 
 function Projects({ linkProps }: { linkProps: LinkProps }) {
+  const [view, setView] = useState<'grid' | 'list'>('grid');
   return (
     <main className="subpage wrap">
       <PageIntro
@@ -157,7 +158,14 @@ function Projects({ linkProps }: { linkProps: LinkProps }) {
         title="Projects I’m building from."
         copy="A few examples of work where I used data to ask better questions, test ideas, and turn complexity into something usable."
       />
-      <div className="project-list">
+      <button
+        type="button"
+        className="view-toggle"
+        onClick={() => setView((current) => (current === 'grid' ? 'list' : 'grid'))}
+      >
+        {view === 'grid' ? 'View as list' : 'View as grid'}
+      </button>
+      <div className={`project-list view-${view}`}>
         {projects.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} linkProps={linkProps} />
         ))}

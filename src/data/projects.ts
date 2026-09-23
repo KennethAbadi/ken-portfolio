@@ -90,4 +90,127 @@ export const projects: Project[] = [
     ],
     stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Cloudflare'],
   },
+  {
+  slug: 'chatterbox',
+  title: 'ChatterBox',
+  shortTitle: 'ChatterBox',
+  role: 'Full-stack developer / team project',
+  year: 2023,
+  summary:
+    'A Discord-inspired communication platform with real-time channels, direct messaging, friend management, user profiles, and role-based permissions.',
+  outcome:
+    'Built and tested a full-stack React application backed by Firebase, supporting authenticated users, channel administration, direct messages, and collaborative communication features.',
+  accent: 'coral',
+  metrics: [
+    { value: '5', label: 'person team' },
+    { value: '20', label: 'component test suites' },
+    { value: '2', label: 'messaging modes' },
+  ],
+  stack: [
+    'React',
+    'JavaScript',
+    'Firebase',
+    'Redux Toolkit',
+    'Tailwind CSS',
+    'Sass',
+    'Vitest',
+  ],
+},
+{
+  slug: 'camelcamelcamel-clone',
+  title: 'CamelCamelCamel Clone',
+  shortTitle: 'Price tracker',
+  role: 'Full-stack developer',
+  year: 2022,
+  summary:
+    'Built a full-stack Amazon price-tracking platform with product search, category filtering, user authentication, price data, reviews, item tracking, and administrative tools.',
+  outcome:
+    'Developed a PHP and MySQL web application with AJAX-powered product loading, account management, review functionality, click tracking, and database-backed administration.',
+  accent: 'orange',
+  metrics: [
+    { value: '4', label: 'product categories' },
+    { value: '3', label: 'user workflows' },
+    { value: '1', label: 'admin dashboard' },
+  ],
+  stack: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS', 'AJAX'],
+},
+{
+  slug: 'grav-shift-tetris',
+  title: 'Grav-Shift Tetris',
+  shortTitle: 'Gravity Tetris',
+  role: 'Unity game developer',
+  year: 2025,
+  summary:
+    'Built a Tetris-inspired puzzle game where gravity shifts in four directions, challenging players to plan piece placement, rotations, line clears, and board movement.',
+  outcome:
+    'Developed a complete Unity 2D game with tetromino rotation, wall kicks, ghost-piece previews, hard drops, dynamic gravity, line clearing, scoring, pause and restart flows, audio feedback, screen shake, and animated UI.',
+  accent: 'orange',
+  metrics: [
+    { value: '7', label: 'tetromino types' },
+    { value: '4', label: 'gravity directions' },
+    { value: '20×20', label: 'playfield grid' },
+  ],
+  stack: [
+    'Unity',
+    'C#',
+    '2D Tilemap',
+    'TextMesh Pro',
+    'DOTween',
+    'Universal Render Pipeline',
+  ],
+},
+{
+  slug: 'herd',
+  title: 'Herd',
+  shortTitle: 'Herd',
+  role: 'Full-stack developer / personal project',
+  year: 2026,
+  summary:
+    'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
+  outcome:
+    'Delivered a full-stack music community experience with authentication, social activity feeds, ratings, reviews, user profiles, search, Spotify integration, and personalized discovery.',
+  accent: 'coral',
+  metrics: [
+    { value: '7', label: 'core features' },
+    { value: '2', label: 'music APIs' },
+    { value: '1–5', label: 'rating scale' },
+  ],
+  stack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'PostgreSQL',
+    'Prisma',
+    'NextAuth.js',
+    'Spotify API',
+  ],
+},
+{
+  slug: 'relationship-wrapped',
+  title: 'Relationship Wrapped',
+  shortTitle: 'Wrapped',
+  role: 'Full-stack developer / personal project',
+  year: 2026,
+  summary:
+    'A private, shareable relationship journal that transforms memories, photos, and milestones into a personalized annual Wrapped experience.',
+  outcome:
+    'Built an end-to-end relationship memory platform with authentication, onboarding, partner joining, memory management, photo uploads, Wrapped generation, private viewing, and share-link access controls.',
+  accent: 'coral',
+  metrics: [
+    { value: '7', label: 'core workflows' },
+    { value: '6', label: 'demo memories' },
+    { value: '2', label: 'sharing modes' },
+  ],
+  stack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'PostgreSQL',
+    'Prisma',
+    'Supabase',
+    'Zod',
+  ],
+},
 ];
