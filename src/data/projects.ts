@@ -4,6 +4,9 @@ import gravShiftTetrisPhoto from '../assets/projects/GravshiftTetris.png';
 import herdPhoto from '../assets/projects/Herd.png';
 import relationshipWrappedPhoto from '../assets/projects/RelationshipWrapped.png';
 import charityHubPhoto from '../assets/projects/CharityHub.png';
+import coffeeSalesAnalysisPhoto from '../assets/projects/CoffeeSales.png';
+import golfStatsPhoto from '../assets/projects/GolfAnalysis.png';
+
 
 export type Project = {
   slug: string;
@@ -118,6 +121,8 @@ export const projects: Project[] = [
       { value: '73%', label: 'rolling-average importance' },
     ],
     stack: ['Python', 'pandas', 'NumPy', 'Scikit-learn', 'Jupyter'],
+    image: coffeeSalesAnalysisPhoto,
+  
   },
   {
     slug: 'golf-course-city-analysis',
@@ -136,6 +141,8 @@ export const projects: Project[] = [
       { value: '3', label: 'data formats' },
     ],
     stack: ['Python', 'Pandas', 'JSON', 'Parquet', 'SQLite'],
+    image: golfStatsPhoto,
+
   },
   {
   slug: 'chatterbox',

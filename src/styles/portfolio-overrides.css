@@ -1,3 +1,7 @@
+:root {
+  --max: 1320px;
+}
+
 .site-header {
   position: fixed;
   top: 0;
@@ -6,26 +10,44 @@
   z-index: 20;
   max-width: none;
   margin: 0;
-  padding: 18px max(28px, calc((100vw - 1040px) / 2 + 28px));
+  padding: 18px max(28px, calc((100vw - var(--max)) / 2 + 28px));
   background: rgba(248, 247, 243, 0.94);
   backdrop-filter: blur(12px);
 }
 
-.hero { padding-top: 190px; }
+/* Center these text blocks as a unit within the wider wrap by giving them a
+   shared max-width and auto side margins, rather than centering each piece
+   of text independently. Every child then keeps its natural left alignment,
+   so smaller copy lines up with the left edge of the larger heading above it. */
+.hero { padding-top: 190px; max-width: 900px; margin-left: auto; margin-right: auto; }
 
-/* Smaller cards in a 3-column grid for both the homepage teaser and the projects page. */
+.page-intro { margin-left: auto; margin-right: auto; }
+
+.contact-page { max-width: 900px; margin-left: auto; margin-right: auto; }
+
+.statement { max-width: 1180px; margin-left: auto; margin-right: auto; }
+.statement-grid { width: 100%; }
+
+/* Shift the entry lists under each section's heading in toward the center
+   to match, instead of stretching all the way to the left edge of the wrap. */
+.timeline,
+.questions-list { max-width: 1180px; margin-left: auto; margin-right: auto; }
+
+/* Use the wider desktop canvas for larger project cards. */
 .project-grid,
-.project-list.view-grid { grid-template-columns: repeat(3, 1fr); gap: 30px 22px; }
+.project-list.view-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 30px; }
 .project-grid .project-art,
-.project-list.view-grid .project-art { height: 170px; padding: 14px; }
+.project-list.view-grid .project-art { height: 250px; padding: 18px; }
 .project-grid .project-meta h3,
-.project-list.view-grid .project-meta h3 { font-size: 17px; }
+.project-list.view-grid .project-meta h3 { font-size: 20px; }
+.project-grid .project-meta p,
+.project-list.view-grid .project-meta p { font-size: 14px; }
 .project-grid .project-summary,
 .project-list.view-grid .project-summary {
-  font-size: 12.5px;
-  margin-top: 8px;
+  font-size: 14px;
+  margin-top: 10px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -79,6 +101,8 @@
 @media (max-width: 900px) {
   .project-grid,
   .project-list.view-grid { grid-template-columns: 1fr 1fr; }
+  .project-grid .project-art,
+  .project-list.view-grid .project-art { height: 230px; }
 }
 
 @media (max-width: 700px) {
