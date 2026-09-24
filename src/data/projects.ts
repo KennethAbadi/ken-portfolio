@@ -1,3 +1,9 @@
+import chatterBoxPhoto from '../assets/projects/Chatterbox.png';
+import camelCamelCamelPhoto from '../assets/projects/DromedaryDromedaryDromedary.png';
+import gravShiftTetrisPhoto from '../assets/projects/GravshiftTetris.png';
+import herdPhoto from '../assets/projects/Herd.png';
+import relationshipWrappedPhoto from '../assets/projects/RelationshipWrapped.png';
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,42 +15,15 @@ export type Project = {
   accent: string;
   metrics: { value: string; label: string }[];
   stack: string[];
-  /** Optional project photo. Import a PNG from src/assets/projects and assign it here. */
+  /** Optional project photo. Import an image from src/assets/projects and assign it here. */
   image?: string;
 };
 
-// To add a photo for a project: drop the PNG in src/assets/projects, then
-// `import charityhubPhoto from '../assets/projects/charityhub.png';`
-// and set `image: charityhubPhoto` on that project's entry below.
+// To add a photo for a project: drop an image in src/assets/projects, then
+// `import projectPhoto from '../assets/projects/project.png';`
+// and set `image: projectPhoto` on that project's entry below.
 
 export const projects: Project[] = [
-  {
-  slug: 'herd',
-  title: 'Herd',
-  shortTitle: 'Herd',
-  role: 'Full-stack developer / Co-developer',
-  year: 2026,
-  summary:
-    'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
-  outcome:
-    'Delivered a full-stack music community experience with authentication, social activity feeds, ratings, reviews, user profiles, search, Spotify integration, and personalized discovery.',
-  accent: 'coral',
-  metrics: [
-    { value: '7', label: 'core features' },
-    { value: '2', label: 'music APIs' },
-    { value: '1–5', label: 'rating scale' },
-  ],
-  stack: [
-    'Next.js',
-    'React',
-    'TypeScript',
-    'Tailwind CSS',
-    'PostgreSQL',
-    'Prisma',
-    'NextAuth.js',
-    'Spotify API',
-  ],
-},
   {
   slug: 'relationship-wrapped',
   title: 'Relationship Wrapped',
@@ -71,7 +50,37 @@ export const projects: Project[] = [
     'Supabase',
     'Zod',
   ],
+  image: relationshipWrappedPhoto,
 },
+  {
+  slug: 'herd',
+  title: 'Herd',
+  shortTitle: 'Herd',
+  role: 'Full-stack developer / Co-developer',
+  year: 2026,
+  summary:
+    'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
+  outcome:
+    'Delivered a full-stack music community experience with authentication, social activity feeds, ratings, reviews, user profiles, search, Spotify integration, and personalized discovery.',
+  accent: 'coral',
+  metrics: [
+    { value: '7', label: 'core features' },
+    { value: '2', label: 'music APIs' },
+    { value: '1–5', label: 'rating scale' },
+  ],
+  stack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'PostgreSQL',
+    'Prisma',
+    'NextAuth.js',
+    'Spotify API',
+  ],
+  image: herdPhoto,
+},
+
   {
     slug: 'charityhub',
     title: 'CharityHub',
@@ -169,24 +178,7 @@ export const projects: Project[] = [
     'Sass',
     'Vitest',
   ],
-},
-{
-  slug: 'camelcamelcamel-clone',
-  title: 'CamelCamelCamel Clone',
-  shortTitle: 'Price tracker',
-  role: 'Full-stack developer',
-  year: 2022,
-  summary:
-    'Built a full-stack Amazon price-tracking platform with product search, category filtering, user authentication, price data, reviews, item tracking, and administrative tools.',
-  outcome:
-    'Developed a PHP and MySQL web application with AJAX-powered product loading, account management, review functionality, click tracking, and database-backed administration.',
-  accent: 'orange',
-  metrics: [
-    { value: '4', label: 'product categories' },
-    { value: '3', label: 'user workflows' },
-    { value: '1', label: 'admin dashboard' },
-  ],
-  stack: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS', 'AJAX'],
+  image: chatterBoxPhoto,
 },
 {
   slug: 'grav-shift-tetris',
@@ -212,5 +204,26 @@ export const projects: Project[] = [
     'DOTween',
     'Universal Render Pipeline',
   ],
+  image: gravShiftTetrisPhoto,
 },
+{
+  slug: 'camelcamelcamel-clone',
+  title: 'CamelCamelCamel Clone',
+  shortTitle: 'Price tracker',
+  role: 'Full-stack developer',
+  year: 2022,
+  summary:
+    'Built a full-stack Amazon price-tracking platform with product search, category filtering, user authentication, price data, reviews, item tracking, and administrative tools.',
+  outcome:
+    'Developed a PHP and MySQL web application with AJAX-powered product loading, account management, review functionality, click tracking, and database-backed administration.',
+  accent: 'orange',
+  metrics: [
+    { value: '4', label: 'product categories' },
+    { value: '3', label: 'user workflows' },
+    { value: '1', label: 'admin dashboard' },
+  ],
+  stack: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS', 'AJAX'],
+  image: camelCamelCamelPhoto,
+},
+
 ];

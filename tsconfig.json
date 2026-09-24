@@ -23,5 +23,5 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/main.tsx", "src/App.tsx", "vite.config.ts"]
+  "include": ["src/main.tsx", "src/App.tsx", "src/env.d.ts", "vite.config.ts"]
 }
