@@ -19,6 +19,60 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+  slug: 'herd',
+  title: 'Herd',
+  shortTitle: 'Herd',
+  role: 'Full-stack developer / Co-developer',
+  year: 2026,
+  summary:
+    'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
+  outcome:
+    'Delivered a full-stack music community experience with authentication, social activity feeds, ratings, reviews, user profiles, search, Spotify integration, and personalized discovery.',
+  accent: 'coral',
+  metrics: [
+    { value: '7', label: 'core features' },
+    { value: '2', label: 'music APIs' },
+    { value: '1–5', label: 'rating scale' },
+  ],
+  stack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'PostgreSQL',
+    'Prisma',
+    'NextAuth.js',
+    'Spotify API',
+  ],
+},
+  {
+  slug: 'relationship-wrapped',
+  title: 'Relationship Wrapped',
+  shortTitle: 'Wrapped',
+  role: 'Full-stack developer / Personal Project',
+  year: 2026,
+  summary:
+    'A private, shareable relationship journal that transforms memories, photos, and milestones into a personalized annual Wrapped experience.',
+  outcome:
+    'Built an end-to-end relationship memory platform with authentication, onboarding, partner joining, memory management, photo uploads, Wrapped generation, private viewing, and share-link access controls.',
+  accent: 'coral',
+  metrics: [
+    { value: '7', label: 'core workflows' },
+    { value: '6', label: 'demo memories' },
+    { value: '2', label: 'sharing modes' },
+  ],
+  stack: [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'PostgreSQL',
+    'Prisma',
+    'Supabase',
+    'Zod',
+  ],
+},
+  {
     slug: 'charityhub',
     title: 'CharityHub',
     shortTitle: 'CharityHub',
@@ -157,60 +211,6 @@ export const projects: Project[] = [
     'TextMesh Pro',
     'DOTween',
     'Universal Render Pipeline',
-  ],
-},
-{
-  slug: 'herd',
-  title: 'Herd',
-  shortTitle: 'Herd',
-  role: 'Full-stack developer / personal project',
-  year: 2026,
-  summary:
-    'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
-  outcome:
-    'Delivered a full-stack music community experience with authentication, social activity feeds, ratings, reviews, user profiles, search, Spotify integration, and personalized discovery.',
-  accent: 'coral',
-  metrics: [
-    { value: '7', label: 'core features' },
-    { value: '2', label: 'music APIs' },
-    { value: '1–5', label: 'rating scale' },
-  ],
-  stack: [
-    'Next.js',
-    'React',
-    'TypeScript',
-    'Tailwind CSS',
-    'PostgreSQL',
-    'Prisma',
-    'NextAuth.js',
-    'Spotify API',
-  ],
-},
-{
-  slug: 'relationship-wrapped',
-  title: 'Relationship Wrapped',
-  shortTitle: 'Wrapped',
-  role: 'Full-stack developer / personal project',
-  year: 2026,
-  summary:
-    'A private, shareable relationship journal that transforms memories, photos, and milestones into a personalized annual Wrapped experience.',
-  outcome:
-    'Built an end-to-end relationship memory platform with authentication, onboarding, partner joining, memory management, photo uploads, Wrapped generation, private viewing, and share-link access controls.',
-  accent: 'coral',
-  metrics: [
-    { value: '7', label: 'core workflows' },
-    { value: '6', label: 'demo memories' },
-    { value: '2', label: 'sharing modes' },
-  ],
-  stack: [
-    'Next.js',
-    'React',
-    'TypeScript',
-    'Tailwind CSS',
-    'PostgreSQL',
-    'Prisma',
-    'Supabase',
-    'Zod',
   ],
 },
 ];
