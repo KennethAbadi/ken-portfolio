@@ -98,11 +98,46 @@
 .case-details li { line-height: 1.45; margin-bottom: 8px; }
 .case-details li:last-child { margin-bottom: 0; }
 
+/* Project case-study page: reuse the same card artwork as the grid (so the
+   view-transition morph below is seamless) but let it fill the hero width,
+   then lay out Description/Info and Key features/Tech stack side by side. */
+.case-hero--project { padding: 0; min-height: auto; overflow: visible; }
+.case-hero--project:after { display: none; }
+.case-hero--project .project-art { height: 440px; border-radius: 20px; }
+
+.case-intro { max-width: 900px; margin: 40px auto 0; }
+.case-intro h1 { font: 500 clamp(38px, 5vw, 58px)/1.05 'Space Grotesk'; letter-spacing: -.03em; margin: 0 0 18px; }
+.case-intro > p:last-child { font-size: 18px; line-height: 1.45; max-width: 560px; color: var(--muted); }
+
+.case-columns { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; padding: 46px 0; border-bottom: 1px solid var(--line); }
+.case-columns:last-of-type { border-bottom: none; }
+.case-columns > div:first-child p { font-size: 17px; line-height: 1.5; max-width: 520px; margin: 0; }
+
+.info-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.info-list li { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+.info-label { font: 12px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); }
+.info-muted { color: var(--muted); }
+
+.feature-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.feature-list li { position: relative; padding-left: 26px; font-size: 16px; line-height: 1.45; margin: 0; }
+.feature-list li:before { content: '✓'; position: absolute; left: 0; top: 0; color: #ee6f67; font-weight: 600; }
+
+.tech-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.tech-badge { font: 13px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .02em; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
+
+/* Smooth cross-page transitions: the clicked project's artwork morphs into
+   the case-study hero, while the rest of the page cross-fades. */
+::view-transition-group(*) { animation-duration: 420ms; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 260ms; }
+
 @media (max-width: 900px) {
   .project-grid,
   .project-list.view-grid { grid-template-columns: 1fr 1fr; }
   .project-grid .project-art,
   .project-list.view-grid .project-art { height: 230px; }
+  .case-columns { grid-template-columns: 1fr; gap: 28px; }
+  .case-hero--project .project-art { height: 300px; }
 }
 
 @media (max-width: 700px) {
@@ -117,4 +152,5 @@
   .question-item { grid-template-columns: 42px 1fr; gap: 14px; }
   .question-item h2 { font-size: 22px; }
   .metrics { grid-template-columns: 1fr 1fr; }
+  .case-hero--project .project-art { height: 220px; }
 }
