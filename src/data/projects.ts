@@ -3,6 +3,7 @@ import camelCamelCamelPhoto from '../assets/projects/DromedaryDromedaryDromedary
 import gravShiftTetrisPhoto from '../assets/projects/GravshiftTetris.png';
 import herdPhoto from '../assets/projects/Herd.png';
 import relationshipWrappedPhoto from '../assets/projects/RelationshipWrapped.png';
+import charityHubPhoto from '../assets/projects/CharityHub.png';
 
 export type Project = {
   slug: string;
@@ -98,6 +99,7 @@ export const projects: Project[] = [
       { value: '100%', label: 'test coverage target' },
     ],
     stack: ['Angular', 'TypeScript', 'ASP.NET Core', 'C#', 'SQL Server'],
+    image: charityHubPhoto,
   },
   {
     slug: 'coffee-sales-analysis',
@@ -134,24 +136,6 @@ export const projects: Project[] = [
       { value: '3', label: 'data formats' },
     ],
     stack: ['Python', 'Pandas', 'JSON', 'Parquet', 'SQLite'],
-  },
-  {
-    slug: 'personal-portfolio-website',
-    title: 'Personal developer portfolio website',
-    shortTitle: 'Portfolio',
-    role: 'Web development / personal branding',
-    year: 2025,
-    summary:
-      'A portfolio website to present projects, technical work, and writing in a centralized, polished online presence.',
-    outcome:
-      'Created a responsive site with project storytelling, hosted deployment, and a custom domain workflow for ongoing publishing.',
-    accent: 'coral',
-    metrics: [
-      { value: '1', label: 'portfolio site' },
-      { value: '4', label: 'content pillars' },
-      { value: '∞', label: 'project updates' },
-    ],
-    stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages', 'Cloudflare'],
   },
   {
   slug: 'chatterbox',
