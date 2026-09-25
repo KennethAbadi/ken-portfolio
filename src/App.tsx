@@ -1,4 +1,5 @@
-import { useEffect, useState, type MouseEvent } from 'react';
+import { useEffect, useState, type CSSProperties, type MouseEvent } from 'react';
+import { flushSync } from 'react-dom';
 import { projects, type Project } from './data/projects';
 import { experiences, type Experience } from './data/experiences';
 
@@ -18,9 +19,22 @@ function pushPath(path: string) {
 }
 
 function navigate(path: string) {
-  pushPath(path);
-  window.dispatchEvent(new PopStateEvent('popstate'));
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const updateState = () => {
+    pushPath(path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  // Use the View Transitions API when available so the clicked project's
+  // artwork smoothly morphs into the case-study hero instead of hard-cutting
+  // between pages. Falls back to a plain smooth scroll where unsupported.
+  if (typeof document !== 'undefined' && document.startViewTransition) {
+    document.startViewTransition(() => {
+      flushSync(updateState);
+      window.scrollTo(0, 0);
+    });
+  } else {
+    updateState();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 function goBack(fallback: string) {
@@ -110,7 +124,7 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
   return (
     <main>
       <section className="hero wrap">
-        <p className="eyebrow">Vancouver, BC</p>
+        <p className="eyebrow">Aspiring Developer · Vancouver, BC</p>
         <h1>
           Hi!
           <br />
@@ -185,7 +199,10 @@ function ProjectCard({
 }) {
   return (
     <a className={`project-card ${project.accent}`} {...linkProps(`/projects/${project.slug}`)}>
-      <div className="project-art">
+      <div
+        className="project-art"
+        style={{ viewTransitionName: `project-art-${project.slug}` } as CSSProperties}
+      >
         {project.image ? (
           <img className="art-photo" src={project.image} alt={project.title} />
         ) : (
@@ -200,7 +217,7 @@ function ProjectCard({
         <div>
           <h3>{project.title}</h3>
           <p>
-            {project.role} · {project.year}
+            {project.type} · {project.year}
           </p>
         </div>
         <span className="arrow">↗</span>
@@ -225,36 +242,73 @@ function ProjectPage({ slug, linkProps }: { slug: string; linkProps: LinkProps }
       >
         ← All projects
       </a>
-      <div className={`case-hero ${project.accent}`}>
+      <div className={`case-hero case-hero--project ${project.accent}`}>
+        <div
+          className="project-art"
+          style={{ viewTransitionName: `project-art-${project.slug}` } as CSSProperties}
+        >
+          {project.image ? (
+            <img className="art-photo" src={project.image} alt={project.title} />
+          ) : (
+            <>
+              <span className="art-label">{project.shortTitle}</span>
+              <div className="art-shape" />
+            </>
+          )}
+        </div>
+      </div>
+      <div className="case-intro">
         <p className="eyebrow">Case study · {project.year}</p>
         <h1>{project.title}</h1>
         <p>{project.summary}</p>
       </div>
-      <section className="case-content">
+      <section className="case-columns">
         <div>
-          <p className="eyebrow">The result</p>
-          <h2>{project.outcome}</h2>
+          <p className="eyebrow">Description</p>
+          <p>{project.description}</p>
         </div>
-        <div className="metrics">
-          {project.metrics.map((metric) => (
-            <div key={metric.label}>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-            </div>
-          ))}
+        <div>
+          <p className="eyebrow">Info</p>
+          <ul className="info-list">
+            <li>
+              <span className="info-label">Link</span>
+              {project.link ? (
+                <a className="text-link" href={project.link} target="_blank" rel="noreferrer">
+                  {project.link.replace(/^https?:\/\//, '')} <span>↗</span>
+                </a>
+              ) : (
+                <span className="info-muted">Coming soon</span>
+              )}
+            </li>
+            <li>
+              <span className="info-label">Year</span>
+              <span>{project.year}</span>
+            </li>
+            <li>
+              <span className="info-label">Type</span>
+              <span>{project.type}</span>
+            </li>
+          </ul>
         </div>
       </section>
-      <section className="case-details">
+      <section className="case-columns">
         <div>
-          <p className="eyebrow">Tools</p>
-          <p>{project.stack.join(' · ')}</p>
+          <p className="eyebrow">Key features</p>
+          <ul className="feature-list">
+            {project.features.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
         <div>
-          <p className="eyebrow">What I learned</p>
-          <p>
-            Feature engineering often matters more than model complexity. Clear visual storytelling
-            turns technical work into something other people can use.
-          </p>
+          <p className="eyebrow">Tech stack</p>
+          <div className="tech-badges">
+            {project.stack.map((item) => (
+              <span className="tech-badge" key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </main>
