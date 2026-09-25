@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
     slug: 'wildfire-risk-sensor-analysis',
     title: 'Wildfire Risk & Environmental Sensor Analysis',
     organization: 'UBC & Rogers',
-    role: 'Undergraduate Research Assistant',
+    role: 'Co-op Undergraduate Research Assistant',
     timeline: 'May 2024 – August 2024',
     summary:
       '',

@@ -12,7 +12,7 @@ export type Project = {
   slug: string;
   title: string;
   shortTitle: string;
-  role: string;
+  type: string;
   year: number;
   summary: string;
   /** Longer "About" paragraph shown on the project's case-study page. */
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     slug: 'relationship-wrapped',
     title: 'Relationship Wrapped',
     shortTitle: 'Wrapped',
-    role: 'Full-stack developer / Personal Project',
+    type: 'Full-stack Application',
     year: 2026,
     summary:
       'A private, shareable relationship journal that transforms memories, photos, and milestones into a personalized annual Wrapped experience.',
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     slug: 'herd',
     title: 'Herd',
     shortTitle: 'Herd',
-    role: 'Full-stack developer / Co-developer',
+    type: 'Social Media Platform',
     year: 2026,
     summary:
       'A social music discovery platform for tracking albums and songs, writing reviews, building curated lists, and connecting with other listeners.',
@@ -94,12 +94,12 @@ export const projects: Project[] = [
     slug: 'charityhub',
     title: 'CharityHub',
     shortTitle: 'CharityHub',
-    role: 'Full-stack developer / capstone project',
+    type: 'Customer Relation Management (CRM)',
     year: 2025,
     summary:
       'A role-based charity management platform for events, donations, and contact management across administrators, vendors, organizations, and users.',
     description:
-      'Delivered a full-stack application with secure authentication, role-based access, and a final course grade of 96%.',
+      'Delivered a full-stack Customer Relation Management (CRM) application with secure authentication, role-based access, and a final course grade of 96%.',
     features: [
       'Role-based access across administrators, vendors, organizations, and users',
       'Event and donation management workflows',
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     slug: 'coffee-sales-analysis',
     title: 'Coffee sales analysis & forecasting',
     shortTitle: 'Coffee sales',
-    role: 'Data analysis / machine learning',
+    type: 'Data analysis & machine learning',
     year: 2025,
     summary:
       'Used a 381-day coffee sales dataset to identify demand patterns, measure seasonality, and evaluate whether historical sales could predict future outcomes.',
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     slug: 'golf-course-city-analysis',
     title: 'Golf course & city analysis',
     shortTitle: 'Golf city analysis',
-    role: 'Data engineering / analysis',
+    type: 'Data engineering & analysis',
     year: 2025,
     summary:
       'Combined golf-course, geographic, climate, and state-level information to analyze which US cities are best suited to golfers.',
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     slug: 'chatterbox',
     title: 'ChatterBox',
     shortTitle: 'ChatterBox',
-    role: 'Full-stack developer / team project',
+    type: 'Communication Platform',
     year: 2023,
     summary:
       'A Discord-inspired communication platform with real-time channels, direct messaging, friend management, user profiles, and role-based permissions.',
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     slug: 'grav-shift-tetris',
     title: 'Grav-Shift Tetris',
     shortTitle: 'Gravity Tetris',
-    role: 'Unity game developer',
+    type: 'Game',
     year: 2025,
     summary:
       'Built a Tetris-inspired puzzle game where gravity shifts in four directions, challenging players to plan piece placement, rotations, line clears, and board movement.',
@@ -207,9 +207,9 @@ export const projects: Project[] = [
   },
   {
     slug: 'camelcamelcamel-clone',
-    title: 'CamelCamelCamel Clone',
+    title: 'DromedaryDromedaryDromedary',
     shortTitle: 'Price tracker',
-    role: 'Full-stack developer',
+    type: 'Full-stack Applications',
     year: 2022,
     summary:
       'Built a full-stack Amazon price-tracking platform with product search, category filtering, user authentication, price data, reviews, item tracking, and administrative tools.',

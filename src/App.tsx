@@ -124,7 +124,7 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
   return (
     <main>
       <section className="hero wrap">
-        <p className="eyebrow">Vancouver, BC</p>
+        <p className="eyebrow">Aspiring Developer · Vancouver, BC</p>
         <h1>
           Hi!
           <br />
@@ -217,7 +217,7 @@ function ProjectCard({
         <div>
           <h3>{project.title}</h3>
           <p>
-            {project.role} · {project.year}
+            {project.type} · {project.year}
           </p>
         </div>
         <span className="arrow">↗</span>
@@ -285,8 +285,8 @@ function ProjectPage({ slug, linkProps }: { slug: string; linkProps: LinkProps }
               <span>{project.year}</span>
             </li>
             <li>
-              <span className="info-label">Role</span>
-              <span>{project.role}</span>
+              <span className="info-label">Type</span>
+              <span>{project.type}</span>
             </li>
           </ul>
         </div>
