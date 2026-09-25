@@ -4,8 +4,9 @@ import { projects, type Project } from './data/projects';
 import { experiences, type Experience } from './data/experiences';
 
 const navItems = [
+  { label: 'About', path: '#about' },
   { label: 'Projects', path: '#projects' },
-  { label: 'Experience', path: '#experience' },
+  { label: 'How I Build', path: '#experience' },
   { label: 'Questions', path: '#questions' },
   { label: 'Contact', path: '#contact' },
 ];
@@ -110,9 +111,6 @@ function App() {
             </a>
           ))}
         </nav>
-        <a className="header-note" {...linkProps('#contact')}>
-          Open to developer roles <span>↗</span>
-        </a>
       </header>
       {page}
       <Footer linkProps={linkProps} />
@@ -130,24 +128,8 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
           <br />
           I'm Kenneth, I try to make cool things and analyze data.
         </h1>
-        <div className="hero-lower">
-          <p className="hero-copy">
-            
-          </p>
-        </div>
       </section>
-      <section className="statement wrap">
-        <p className="eyebrow">A little more context</p>
-        <div className="statement-grid">
-          <h2>I like bringing insight to problems and building interesting things.</h2>
-          <div>
-            <p>
-              Id like to think that i'm a full stack developer and a data enthusiast. I enjoy building applications on things im passionate about as well as analyzing data to uncover meaningful insights.
-              I care about thoughtful insights and clean design and architecture. 
-            </p>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
       <section id="projects" className="work-section wrap">
         <SectionLabel text="Projects" />
         <div className="project-grid">
@@ -156,7 +138,7 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
           ))}
         </div>
       </section>
-      <ExperienceSection linkProps={linkProps} />
+      <HowIBuildSection linkProps={linkProps} />
       <QuestionsSection />
       <ContactSection />
     </main>
@@ -470,33 +452,116 @@ function ExperiencePage({ slug, linkProps }: { slug: string; linkProps: LinkProp
   );
 }
 
-function ExperienceSection({ linkProps }: { linkProps: LinkProps }) {
+function AboutSection() {
+  return (
+    <section id="about" className="about-section scroll-section wrap">
+      <p className="eyebrow">About</p>
+      <div className="about-grid">
+        <h2>
+          I build full-stack products from ideas, questions, and problems I care about.
+        </h2>
+        <div className="about-copy">
+          <p>
+            I’m a computer science graduate focused on full-stack development, with a background
+            in data and analytics.
+          </p>
+          <p>
+            I enjoy working across the stack, from interfaces and APIs to backend architecture and
+            databases. I’m especially interested in building useful products around ideas I’m
+            genuinely curious about.
+          </p>
+          <p className="about-skills">
+            Full-stack development · Product engineering · APIs · Data &amp; analytics · System
+            design
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowIBuildSection({ linkProps }: { linkProps: LinkProps }) {
+  const strengths = [
+    {
+      title: 'Building end-to-end',
+      paragraphs: [
+        'I enjoy working across the full stack, from interfaces and user flows to APIs, authentication, backend logic, and databases.',
+        'Projects like CharityHub and Herd have given me experience thinking about the entire application rather than isolated features.',
+      ],
+      tech: ['Angular', 'React', 'TypeScript', 'C#', 'ASP.NET Core', 'SQL', 'APIs', 'Authentication'],
+      links: [
+        { label: 'CharityHub', href: '/projects/charityhub' },
+        { label: 'Herd', href: '/projects/herd' },
+      ],
+    },
+    {
+      title: 'Turning ideas into products',
+      paragraphs: [
+        'Some of my strongest work starts with an idea rather than a specification.',
+        'Building projects like Herd and Relationship Wrapped has pushed me to think about MVP scope, user flows, data models, architecture, privacy, and how individual features fit into a complete product.',
+      ],
+      links: [
+        { label: 'Herd', href: '/projects/herd' },
+        { label: 'Relationship Wrapped', href: '/projects/relationship-wrapped' },
+      ],
+    },
+    {
+      title: 'Working with real problems',
+      paragraphs: [
+        'I like software most when the technical work connects to a real problem.',
+        'During my wildfire analytics work at UBC Okanagan, I worked with environmental data and stakeholders to build tools that made complex information easier to analyze and use.',
+        'That experience shaped how I approach development today: understand the problem first, then build around it.',
+      ],
+      links: [{ label: 'Wildfire analytics work', href: '/experience/wildfire-risk-sensor-analysis' }],
+    },
+  ];
+  const [active, setActive] = useState(0);
   return (
     <section id="experience" className="scroll-section wrap">
       <PageIntro
-        eyebrow="Experience"
-        title="Learning by doing."
-        copy="A practical path through analysis, experimentation, and building useful things from messy information."
+        eyebrow="How I build"
+        title="Learning by building."
+        copy="The principles and experiences that shape how I approach software."
       />
-      <div className="timeline">
-        <div className="timeline-item">
-          <span>May 2024 – Aug 2024</span>
-          <div>
-            <h2>Undergraduate Research Assistant · UBC Okanagan</h2>
-            <p>
-              Worked on wildfire research and sensor-analysis projects using environmental and IoT
-              data to improve wildfire forecasting and communication with response teams.
-            </p>
-            <small>
-              Python · pandas · NumPy · SQL · Power BI · Azure DevOps · Git
-            </small>
-            <p>
-              <a className="text-link" {...linkProps('/experience/wildfire-risk-sensor-analysis')}>
-                Read the full role <span>↗</span>
-              </a>
-            </p>
+      <div className="strengths">
+        {strengths.map((strength, index) => (
+          <div className="strength-item" key={strength.title}>
+            <button
+              type="button"
+              id={`strength-tab-${index}`}
+              className={`strength-tab ${active === index ? 'active' : ''}`}
+              aria-pressed={active === index}
+              aria-controls={`strength-panel-${index}`}
+              onClick={() => setActive(index)}
+              onFocus={() => setActive(index)}
+              onMouseEnter={() => setActive(index)}
+            >
+              <span className="strength-index">0{index + 1}</span>
+              <span>{strength.title}</span>
+            </button>
+            <div
+              className="strength-content"
+              id={`strength-panel-${index}`}
+              role="region"
+              aria-labelledby={`strength-tab-${index}`}
+              hidden={active !== index}
+            >
+              {strength.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {strength.tech && <p className="strength-tech">{strength.tech.join(' · ')}</p>}
+              {strength.links && (
+                <div className="strength-links">
+                  {strength.links.map((link) => (
+                    <a className="text-link" key={link.href} {...linkProps(link.href)}>
+                      View {link.label} <span>↗</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

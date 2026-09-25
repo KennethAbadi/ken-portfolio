@@ -13,13 +13,35 @@
   padding: 18px max(28px, calc((100vw - var(--max)) / 2 + 28px));
   background: rgba(248, 247, 243, 0.94);
   backdrop-filter: blur(12px);
+  display: flex;
+}
+
+.site-header nav {
+  margin-left: auto;
 }
 
 /* Center these text blocks as a unit within the wider wrap by giving them a
    shared max-width and auto side margins, rather than centering each piece
    of text independently. Every child then keeps its natural left alignment,
    so smaller copy lines up with the left edge of the larger heading above it. */
-.hero { padding-top: 190px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero h1 {
+  max-width: 1000px;
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
 
 .page-intro { margin-left: auto; margin-right: auto; }
 
@@ -86,11 +108,99 @@
 .project-list.view-list .project-meta { padding-top: 0; }
 .project-list.view-list .project-summary { margin-top: 4px; max-width: 620px; }
 .scroll-section { scroll-margin-top: 90px; }
+
+/* About: an asymmetrical editorial split (big statement / supporting copy),
+   using the same ~58/42 column ratio and border-top divider as the site's
+   other statement and columns sections. Given its own min-height like the
+   hero so it reads as a distinct "page" when scrolling, rather than a tight
+   subsection squeezed against Projects. */
+.about-section {
+  border-top: 1px solid var(--line);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; padding-top: 22px; }
+.about-grid h2 {
+  font: 500 clamp(2.4rem, 4.2vw, 3.75rem)/1.05 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+  max-width: 620px;
+  margin: 0;
+}
+.about-copy { padding-top: 6px; }
+.about-copy p { font-size: 18px; line-height: 1.5; max-width: 440px; margin: 0 0 22px; }
+.about-copy p:last-of-type { margin-bottom: 0; }
+.about-copy .about-skills {
+  font: 12px 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: none;
+  margin-top: 30px;
+}
 .questions-list { border-top: 1px solid #dcdad4; }
 .question-item { display: grid; grid-template-columns: 150px 1fr; gap: 40px; border-bottom: 1px solid #dcdad4; padding: 28px 0; }
 .question-item > span { color: #88848b; font: 12px 'DM Mono', monospace; }
 .question-item h2 { font: 500 27px 'Space Grotesk'; margin: 0 0 10px; }
 .question-item p { font-size: 17px; line-height: 1.45; max-width: 570px; margin: 0; }
+
+/* How I build: two-part editorial layout. Each .strength-item is a grid
+   "row" (via display:contents) so its tab sits in the left ~42% column and
+   its content sits in the right column on the same row; this keeps DOM
+   order as tab/content pairs, which is what lets the mobile override below
+   collapse it into simple stacked sections without a separate markup path. */
+.strengths { display: grid; grid-template-columns: 42% 1fr; column-gap: 70px; border-top: 1px solid var(--line); padding-top: 6px; }
+.strength-item { display: contents; }
+.strength-tab {
+  grid-column: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  width: 100%;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  text-align: left;
+  cursor: pointer;
+  font: 500 26px 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+.strength-tab:hover { color: var(--ink); }
+.strength-tab.active { color: var(--ink); }
+.strength-index { font: 12px 'DM Mono', monospace; color: var(--muted); transition: color 0.25s ease; }
+.strength-tab.active .strength-index { color: #ee6f67; }
+.strength-tab:focus-visible { outline: 2px solid #ee6f67; outline-offset: -2px; }
+.strength-content { grid-column: 2; align-self: start; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.strength-content p { font-size: 18px; line-height: 1.55; max-width: 520px; margin: 0 0 20px; }
+.strength-content p:last-of-type { margin-bottom: 0; }
+.strength-tech {
+  font: 12px 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 26px;
+}
+.strength-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 22px; }
+.strength-links .text-link { font-size: 15px; }
+.strength-content:not([hidden]) { animation: strength-fade 0.35s ease; }
+@keyframes strength-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .strength-content:not([hidden]) { animation: none; }
+}
+
 .case-content { grid-template-columns: 1fr; gap: 40px; }
 .case-content h2 { max-width: none; }
 .experience-overview { font-size: 28px !important; text-align: left; }
@@ -138,10 +248,18 @@
   .project-list.view-grid .project-art { height: 230px; }
   .case-columns { grid-template-columns: 1fr; gap: 28px; }
   .case-hero--project .project-art { height: 300px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-copy p,
+  .about-grid h2 { max-width: none; }
 }
 
 @media (max-width: 700px) {
-  .site-header { padding: 16px 20px; }
+  .site-header {
+    display: grid;
+    padding: 16px 20px;
+  }
+
+  .site-header nav { margin-left: 0; }
   .hero { padding-top: 150px; }
   .project-grid,
   .project-list.view-grid { grid-template-columns: 1fr; }
@@ -153,4 +271,24 @@
   .question-item h2 { font-size: 22px; }
   .metrics { grid-template-columns: 1fr 1fr; }
   .case-hero--project .project-art { height: 220px; }
+  .about-section { padding-top: 70px; padding-bottom: 70px; }
+
+  /* Collapse the tab interaction into simple stacked sections: each title
+     sits directly above its own description, in the same DOM order used on
+     desktop, with no interactive tab affordance. */
+  .strengths { display: block; border-top: 1px solid var(--line); padding-top: 0; }
+  .strength-tab {
+    display: flex;
+    gap: 12px;
+    cursor: default;
+    pointer-events: none;
+    color: var(--ink);
+    font-size: 22px;
+    padding: 26px 0 8px;
+    border-bottom: none;
+  }
+  .strength-index { color: #ee6f67; }
+  .strength-content { grid-column: auto; border-bottom: 1px solid var(--line); padding: 0 0 26px; }
+  .strength-content[hidden] { display: block; }
+  .strength-content:not([hidden]) { animation: none; }
 }
