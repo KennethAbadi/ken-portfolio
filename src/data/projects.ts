@@ -34,6 +34,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'relationship-wrapped',
+    link: 'https://github.com/KennethAbadi/RelationshipWrapped', // TODO: add live/repo link
     title: 'Relationship Wrapped',
     shortTitle: 'Wrapped',
     type: 'Full-stack Application',
@@ -63,6 +64,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'herd',
+    link: 'https://github.com/Bandoozle/Herd', // TODO: add live/repo link
     title: 'Herd',
     shortTitle: 'Herd',
     type: 'Social Media Platform',
@@ -92,6 +94,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'charityhub',
+    link: 'https://github.com/COSC-499-W2024/capstone-project-team-04-003', // TODO: add live/repo link
     title: 'CharityHub',
     shortTitle: 'CharityHub',
     type: 'Customer Relation Management (CRM)',
@@ -112,6 +115,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'coffee-sales-analysis',
+    link: 'https://github.com/KennethAbadi/CoffeeSalesDA', // TODO: add live/repo link
     title: 'Coffee sales analysis & forecasting',
     shortTitle: 'Coffee sales',
     type: 'Data analysis & machine learning',
@@ -132,6 +136,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'golf-course-city-analysis',
+    link: 'https://github.com/KennethAbadi/Best-Golf-City-Analysis', // TODO: add live/repo link
     title: 'Golf course & city analysis',
     shortTitle: 'Golf city analysis',
     type: 'Data engineering & analysis',
@@ -152,6 +157,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'chatterbox',
+    link: 'https://github.com/KennethAbadi/Discord-Clone', // TODO: add live/repo link
     title: 'ChatterBox',
     shortTitle: 'ChatterBox',
     type: 'Communication Platform',
@@ -180,6 +186,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'grav-shift-tetris',
+    link: 'https://jgresl.itch.io/grav-shift-tetris',
     title: 'Grav-Shift Tetris',
     shortTitle: 'Gravity Tetris',
     type: 'Game',
@@ -207,6 +214,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'camelcamelcamel-clone',
+    link: 'https://github.com/KennethAbadi/DromedaryDromedaryDromedary',
     title: 'DromedaryDromedaryDromedary',
     shortTitle: 'Price tracker',
     type: 'Full-stack Applications',

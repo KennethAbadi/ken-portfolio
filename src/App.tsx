@@ -257,7 +257,7 @@ function ProjectPage({ slug, linkProps }: { slug: string; linkProps: LinkProps }
               <span className="info-label">Link</span>
               {project.link ? (
                 <a className="text-link" href={project.link} target="_blank" rel="noreferrer">
-                  {project.link.replace(/^https?:\/\//, '')} <span>↗</span>
+                  Link <span>↗</span>
                 </a>
               ) : (
                 <span className="info-muted">Coming soon</span>
