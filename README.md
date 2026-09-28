@@ -27,4 +27,4 @@ This portfolio is a collection of the things I've built, the problems I've worke
 
 ## Portfolio
 
-[View the live site](www.KennethAbadi.dev)
+[View the live site](https://kennethabadi.dev)
