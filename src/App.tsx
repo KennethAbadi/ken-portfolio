@@ -516,6 +516,30 @@ function HowIBuildSection({ linkProps }: { linkProps: LinkProps }) {
     },
   ];
   const [active, setActive] = useState(0);
+  const [displayed, setDisplayed] = useState(0);
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  useEffect(() => {
+    if (active === displayed) {
+      setIsLeaving(false);
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayed(active);
+      setIsLeaving(false);
+      return;
+    }
+
+    setIsLeaving(true);
+    const timeout = window.setTimeout(() => {
+      setDisplayed(active);
+      setIsLeaving(false);
+    }, 200);
+
+    return () => window.clearTimeout(timeout);
+  }, [active, displayed]);
+
   return (
     <section id="experience" className="scroll-section wrap">
       <PageIntro
@@ -533,7 +557,6 @@ function HowIBuildSection({ linkProps }: { linkProps: LinkProps }) {
               aria-pressed={active === index}
               aria-controls={`strength-panel-${index}`}
               onClick={() => setActive(index)}
-              onFocus={() => setActive(index)}
               onMouseEnter={() => setActive(index)}
             >
               <span className="strength-index">0{index + 1}</span>
@@ -544,10 +567,13 @@ function HowIBuildSection({ linkProps }: { linkProps: LinkProps }) {
               id={`strength-panel-${index}`}
               role="region"
               aria-labelledby={`strength-tab-${index}`}
-              hidden={active !== index}
+              hidden={displayed !== index}
+              data-phase={isLeaving && displayed === index ? 'leaving' : undefined}
             >
               {strength.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p className="strength-description" key={paragraph}>
+                  {paragraph}
+                </p>
               ))}
               {strength.tech && <p className="strength-tech">{strength.tech.join(' · ')}</p>}
               {strength.links && (
@@ -571,23 +597,23 @@ function QuestionsSection() {
   const questions = [
     [
       'What roles am I looking for?',
-      'Junior analyst and developer roles where I can keep learning while supporting better decisions and better systems.',
+      'Full-stack or software engineering roles where I can keep growing while building useful products and contributing across the stack.',
     ],
     [
-      'What is my strongest technical area?',
-      'Exploratory analysis, visualization, and turning findings into clear, useful stories.',
+      'What kind of developer am I?',
+      'I like working end-to-end: shaping the idea, building the interface, designing APIs, working with databases, and thinking about how the whole product fits together.',
     ],
     [
       'What is my stack?',
-      'Python, pandas, NumPy, scikit-learn, Jupyter, Matplotlib, Seaborn, SQLite, and Parquet.',
+      'TypeScript, JavaScript, Angular, React, C#, ASP.NET Core, SQL, Python, and the tools around them.',
     ],
     [
       'What kind of problems do I enjoy?',
-      'Questions about behavior, performance, and trends that become clearer once the data is organized well.',
+      'Problems where I can turn something vague into something clear and usable, whether that means building a product, structuring a system, or using data to understand what’s really happening.',
     ],
     [
       'How do I approach a new project?',
-      'Start with the question, check the data honestly, test assumptions, and explain the outcome clearly.',
+      'I start by understanding the problem, defining what actually needs to be built, and then working from the system down: user flow, architecture, data, and implementation.',
     ],
   ];
   return (
@@ -595,7 +621,7 @@ function QuestionsSection() {
       <PageIntro
         eyebrow="Questions"
         title="The quick version."
-        copy="A few straightforward answers about how I work and what I’m looking for next."
+        copy="A few straightforward answers about how I build and what I’m looking for next."
       />
       <div className="questions-list">
         {questions.map(([question, answer], index) => (
