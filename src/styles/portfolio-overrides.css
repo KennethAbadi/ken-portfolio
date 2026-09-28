@@ -145,7 +145,7 @@
 .questions-list { border-top: 1px solid #dcdad4; }
 .question-item { display: grid; grid-template-columns: 150px 1fr; gap: 40px; border-bottom: 1px solid #dcdad4; padding: 28px 0; }
 .question-item > span { color: #88848b; font: 12px 'DM Mono', monospace; }
-.question-item h2 { font: 500 27px 'Space Grotesk'; margin: 0 0 10px; }
+.question-item h2 { font: 500 27px 'Space Grotesk', sans-serif; margin: 0 0 10px; }
 .question-item p { font-size: 17px; line-height: 1.45; max-width: 570px; margin: 0; }
 
 /* How I build: two-part editorial layout. Each .strength-item is a grid
@@ -230,7 +230,7 @@
 .case-hero--project .project-art { height: 440px; border-radius: 20px; }
 
 .case-intro { max-width: 900px; margin: 40px auto 0; }
-.case-intro h1 { font: 500 clamp(38px, 5vw, 58px)/1.05 'Space Grotesk'; letter-spacing: -.03em; margin: 0 0 18px; }
+.case-intro h1 { font: 500 clamp(38px, 5vw, 58px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.03em; margin: 0 0 18px; }
 .case-intro > p:last-child { font-size: 18px; line-height: 1.45; max-width: 560px; color: var(--muted); }
 
 .case-columns { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; padding: 46px 0; border-bottom: 1px solid var(--line); }

@@ -122,11 +122,12 @@ function Home({ linkProps }: { linkProps: LinkProps }) {
   return (
     <main>
       <section className="hero wrap">
-        <p className="eyebrow">Aspiring Developer · Vancouver, BC</p>
+        <p className="eyebrow">Full-Stack Developer · Vancouver, BC</p>
         <h1>
           Hi!
           <br />
-          I'm Kenneth, I try to make cool things and analyze data.
+          I’m Kenneth. I build products, explore ideas, 
+          and work with data.
         </h1>
       </section>
       <AboutSection />
