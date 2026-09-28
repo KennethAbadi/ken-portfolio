@@ -1,36 +1,30 @@
-# Kenneth Abadi's Portfolio
+# Kenneth Abadi — Portfolio
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
-
-kennethabadi.dev
-
-Personal portfolio website for Kenneth Abadi, an aspiring Data Analyst specializing in data analysis, visualization, and deriving actionable insights from complex datasets.
+Personal portfolio showcasing the products, projects, and technical work I've built across full-stack development and data.
 
 ## About
 
-This portfolio showcases my journey in data analytics, featuring:
+I'm a full-stack developer with a background in computer science and data analytics.
 
-- **Projects** — In-depth projects showcasing data analysis work with problem statements, methodologies, and measurable outcomes
-- **Journey** — Key milestones and learnings throughout my career in data analytics
-- **Writing** — Technical articles and insights about data analysis, visualization, and best practices
-- **Tools** — My tech stack and development environment
+I enjoy taking ideas from concept to implementation, working across frontend, backend, APIs, databases, and data when the problem calls for it.
 
-## Tech Stack
+This portfolio is a collection of the things I've built, the problems I've worked on, and how I approach software development.
 
-This portfolio is built with:
+## Featured Work
 
-- **[Astro](https://astro.build)** — Fast, content-focused web framework
-- **TypeScript** — Type-safe development
-- **Tailwind CSS** — Utility-first styling
-- **MDX** — Enhanced markdown for rich content
+- **Relationship Wrapped** — A private full-stack application for couples to capture memories and generate personalized relationship retrospectives.
+- **Herd** — A social music platform for rating, reviewing, and discovering albums and songs.
+- **CharityHub** — A full-stack event and charity management platform built with Angular and ASP.NET Core.
+- **Coffee Sales Analysis** — Exploratory analysis and forecasting using Python and machine learning.
+- **Golf Course & City Analysis** — A data pipeline and analysis project exploring golf accessibility across U.S. cities.
 
-## Contact
+## Tech
 
-- **Email**: kenneth.putra25@gmail.com
-- **Location**: Vancouver, BC, Canada
-- **LinkedIn**: [linkedin.com/in/kennethputra](https://linkedin.com/in/kennethputra)
-- **GitHub**: [github.com/KennethAbadi](https://github.com/KennethAbadi)
+**Frontend:** React, Angular, TypeScript, JavaScript, HTML, CSS  
+**Backend:** C#, ASP.NET Core, Node.js  
+**Data:** Python, SQL, Pandas, NumPy  
+**Tools:** Git, Azure DevOps, Power BI
 
-## License
+## Portfolio
 
-This portfolio is built using the [Case theme](https://github.com/erlandv/case) for Astro, which is licensed under the [MIT License](./LICENSE).
+[View the live site](KennethAbadi.dev)
